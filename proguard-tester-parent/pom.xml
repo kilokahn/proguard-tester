@@ -5,4 +5,22 @@
     <artifactId>proguard-tester-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <modules>
+        <module>proguard-tester-business</module>
+        <module>proguard-tester-client</module>
+        <module>proguard-tester-rs-api</module>
+    </modules>
 </project>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+    <bean id="mixinSetter" class="com.kilo.MixinSetter">
+    </bean>
+
+    <bean id="specialService" class="com.kilo.SpecialServiceImpl">
+    </bean>
+
+    <bean id="inetAddress" class="java.net.InetAddress"
+        factory-method="getLocalHost" />
+
+    <jaxrs:server id="specialServiceRS"
+        address="http://#{inetAddress.hostName}:9343/services">
+        <jaxrs:serviceBeans>
+            <ref bean="specialService" />
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider">
+                <property name="mapper" ref="jacksonMapper" />
+            </bean>
+            <bean class="com.kilo.ApplicationParamConverterProvider" />
+        </jaxrs:providers>
+        <jaxrs:outInterceptors>
+            <bean
+                class="org.apache.cxf.transport.common.gzip.GZIPOutInterceptor" />
+        </jaxrs:outInterceptors>
+    </jaxrs:server>
+
+    <bean id="jacksonMapper" class="org.codehaus.jackson.map.ObjectMapper">
+        <property name="serializationConfig.dateFormat">
+            <bean class="java.text.SimpleDateFormat">
+                <constructor-arg value="yyyyMMddHH:mm:ss.S" />
+            </bean>
+        </property>
+        <property name="deserializationConfig.dateFormat">
+            <bean class="java.text.SimpleDateFormat">
+                <constructor-arg value="yyyyMMddHH:mm:ss.S" />
+            </bean>
+        </property>
+    </bean>
+</beans>

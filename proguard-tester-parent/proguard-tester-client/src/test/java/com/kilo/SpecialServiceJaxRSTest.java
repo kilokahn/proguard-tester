@@ -1,6 +1,12 @@
 
 package com.kilo;
 
+import static org.junit.Assert.assertNotNull;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
@@ -24,5 +30,13 @@ public class SpecialServiceJaxRSTest {
     public void testGetSomeInt() {
         Integer someInt = specialService.getSomeInt();
         LOG.info(someInt);
+    }
+
+    @Test
+    public void testGetSomeComplexObjectsWithIntInputs() {
+        List<SpecialObject> specialObjects = specialService
+                .getSomeComplexObjectsWithIntInputs(Arrays.asList(1, 2));
+        assertNotNull(specialObjects);
+        LOG.info(specialObjects);
     }
 }

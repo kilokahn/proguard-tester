@@ -10,12 +10,16 @@
     <bean id="inetAddress" class="java.net.InetAddress"
         factory-method="getLocalHost" />
 
+    <bean id="mixinSetter" class="com.kilo.MixinSetter">
+    </bean>
+
     <jaxrs:client id="specialServiceClient" serviceClass="com.kilo.SpecialService"
         address="http://#{inetAddress.hostName}:9343/services">
         <jaxrs:providers>
             <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider">
                 <property name="mapper" ref="jacksonMapper" />
             </bean>
+            <bean class="com.kilo.ApplicationParamConverterProvider" />
         </jaxrs:providers>
     </jaxrs:client>
 

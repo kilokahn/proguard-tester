@@ -64,12 +64,10 @@
                     <outjar>${project.build.finalName}.jar</outjar>
                     <outputDirectory>${project.build.directory}</outputDirectory>
                     <options>
-                        <!-- 
-                        <option>-keepattributes *Annotation*</option>
-                         -->
-                        <option>-keep @javax.ws.rs.Path public class com.kilo.SpecialService { private public protected *;}</option>
-                        <option>-keep public class com.kilo.MixinSetter {private public protected *;}</option>
-                        <option>-keep public class com.kilo.ApplicationParamConverterProvider{private public protected *;}</option>
+                        <option>-keepattributes</option>
+                        <option>-keep @javax.ws.rs.Path public interface com.kilo.SpecialService { *;}</option>
+                        <option>-keep public class com.kilo.MixinSetter { *;}</option>
+                        <option>-keep public class com.kilo.ApplicationParamConverterProvider { *;}</option>
                         <!-- 
                         <option>-keep public class com.kilo.SpecialObject { private public protected *;}</option>
                          -->

@@ -4,7 +4,6 @@ package com.kilo;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.Resource;

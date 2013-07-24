@@ -64,15 +64,12 @@
                     <outjar>${project.build.finalName}.jar</outjar>
                     <outputDirectory>${project.build.directory}</outputDirectory>
                     <options>
+                        <option>-dontnote</option>
                         <option>-keepattributes</option>
-                        <option>-keepclassmembers class * { *;}</option>
-                        <option>-dontoptimize</option>
                         <option>-keep @javax.ws.rs.Path public interface com.kilo.SpecialService { *;}</option>
+                        <option>-keepclassmembers class * { *;}</option>
                         <option>-keep public class com.kilo.MixinSetter { *;}</option>
                         <option>-keep public class com.kilo.ApplicationParamConverterProvider { *;}</option>
-                        <!-- 
-                        <option>-keep public class com.kilo.SpecialObject { private public protected *;}</option>
-                         -->
                     </options>
                     <libs>
                         <lib>${java.home}/lib/rt.jar</lib>

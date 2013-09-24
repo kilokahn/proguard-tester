@@ -9,42 +9,6 @@
     <artifactId>proguard-tester-rs-api</artifactId>
     <build>
         <plugins>
-        <!-- 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.1</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <filters>
-                                <filter>
-                                    <artifact>com.kilo:proguard-tester-business</artifact>
-                                    <includes>
-                                        <include>com/kilo/SpecialService</include>
-                                    </includes>
-                                    <excludes>
-                                        <exclude>*/**</exclude>
-                                    </excludes>
-                                </filter>
-                            </filters>
-                            <minimizeJar>true</minimizeJar>
-                        </configuration>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.kilo</groupId>
-                        <artifactId>proguard-tester-business</artifactId>
-                        <version>0.0.1-SNAPSHOT</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-             -->
             <plugin>
                 <groupId>com.github.wvengen</groupId>
                 <artifactId>proguard-maven-plugin</artifactId>

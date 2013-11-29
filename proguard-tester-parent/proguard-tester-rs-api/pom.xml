@@ -35,6 +35,14 @@
                         <option>-keep public class com.kilo.MixinSetter { *;}</option>
                         <option>-keep public class com.kilo.ApplicationParamConverterProvider { *;}</option>
                     </options>
+                    <assembly>
+                        <inclusions>
+                            <inclusion>
+                                <groupId>com.kilo</groupId>
+                                <artifactId>proguard-tester-common</artifactId>
+                            </inclusion>
+                        </inclusions>
+                    </assembly>
                     <libs>
                         <lib>${java.home}/lib/rt.jar</lib>
                     </libs>

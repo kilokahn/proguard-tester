@@ -19,6 +19,7 @@
         </plugins>
     </build>
     <modules>
+        <module>proguard-tester-common</module>
         <module>proguard-tester-business</module>
         <module>proguard-tester-client</module>
         <module>proguard-tester-rs-api</module>

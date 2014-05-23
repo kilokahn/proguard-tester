@@ -52,7 +52,7 @@
                     <dependency>
                         <groupId>net.sf.proguard</groupId>
                         <artifactId>proguard-base</artifactId>
-                        <version>4.8</version>
+                        <version>5.0beta1</version>
                         <scope>runtime</scope>
                     </dependency>
                 </dependencies>
@@ -63,7 +63,7 @@
         <dependency>
             <groupId>com.kilo</groupId>
             <artifactId>proguard-tester-business</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
